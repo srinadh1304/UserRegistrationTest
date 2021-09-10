@@ -106,4 +106,18 @@ public class UserValidatorTest {
 		Assert.assertFalse(isNotValid);
 		
 	}
+	
+	@Test
+	public void givenEmail_WhenProper_ShouldReturnTrue() {
+		UserValidator validator = new UserValidator();	
+		boolean result = validator.validateEmail("srinadh.t@gmail.com.in");
+		Assert.assertTrue(result);
+	}
+	
+	@Test
+	public void givenEmail_WhenNotProper_ShouldReturnFalse() {
+		UserValidator validator = new UserValidator();	
+		boolean result = validator.validateEmail("sri@ta@gmail.com");
+		Assert.assertFalse(result);
+	}
 }
