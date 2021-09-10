@@ -136,4 +136,65 @@ public class UserValidatorTest {
 		Assert.assertFalse(result);
 		
 	}
+	
+	@Test
+	public void givenMobileNumber_WhenProper_ShouldReturnTrue() {
+		UserValidator validator = new UserValidator();	
+		boolean result = validator.validateMobileNumber("91 9290090032");
+		Assert.assertTrue(result);
+	}
+	
+	@Test
+	public void givenMobileNumber_WhenShort_ShouldReturnFalse() {
+		UserValidator validator = new UserValidator();	
+		boolean result = validator.validateMobileNumber("91 92900900");
+		Assert.assertFalse(result);
+	}
+	
+	@Test
+	public void givenMobileNumber_WhenNoSpace_ShouldReturnFalse() {
+		UserValidator validator = new UserValidator();	
+		boolean result = validator.validateMobileNumber("919290090032");
+		Assert.assertFalse(result);
+	}
+	
+	@Test
+	public void givenMobileNumber_WhenNoCountryCode_ShouldReturnFalse() {
+		UserValidator validator = new UserValidator();	
+		boolean result = validator.validateMobileNumber("9290090032");
+		Assert.assertFalse(result);
+	}
+	
+	@Test
+	public void givenMobileNumber_WhenNull_ShouldReturnFalse() {
+		UserValidator userValidator = new UserValidator();
+		boolean result = userValidator.validateMobileNumber(null);
+		Assert.assertFalse(result);
+		
+	}
+	
+	@Test
+	public void givenMobileNumber_WhenEmpty_ShouldReturnFalse() {
+		UserValidator userValidator = new UserValidator();
+		boolean result = userValidator.validateMobileNumber("");
+		Assert.assertFalse(result);
+		
+	}
+	
+	@Test
+	public void givenMobileNumber_WhenCharatersArePresent_ShouldReturnFalse() {
+		UserValidator userValidator = new UserValidator();
+		boolean result = userValidator.validateMobileNumber("9a 948375053h");
+		Assert.assertFalse(result);
+		
+	}
+
+	@Test
+	public void givenMobileNumber_WhenSpecialCharatersArePresent_ShouldReturnFalse() {
+		UserValidator userValidator = new UserValidator();
+		boolean result = userValidator.validateMobileNumber("#6 948375*535");
+		Assert.assertFalse(result);
+		
+	}
+	
 }
