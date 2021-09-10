@@ -15,7 +15,7 @@ public class UserValidator {
 		return Pattern.matches(nameValidation, name);
 	}
 
-	public boolean validateEmail(String email) {
+	public static boolean validateEmail(String email) {
 
 		if(email == null) {
 			return false;
