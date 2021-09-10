@@ -27,4 +27,17 @@ public class UserValidator {
 		Matcher matcher = pattern.matcher(email);
 		return matcher.matches();
 	}
+
+	public boolean validateMobileNumber(String mobileNumber) {
+
+		if(mobileNumber == null) {
+			return false;
+		}
+		if(mobileNumber == "") {
+			return false;
+		}
+		Pattern pattern = Pattern.compile("[0-9]{1,2}[\s][1-9][0-9]{9}");
+		Matcher matcher = pattern.matcher(mobileNumber);
+		return matcher.matches();
+	}
 }
