@@ -40,4 +40,17 @@ public class UserValidator {
 		Matcher matcher = pattern.matcher(mobileNumber);
 		return matcher.matches();
 	}
+
+	public boolean validatePassword(String password) {
+
+		if(password == null) {
+			return false;
+		}
+		if(password == "") {
+			return false;
+		}
+		Pattern pattern = Pattern.compile("^(?=.*[A-Z])(?=.*[0-9])(?=.{8,}$)[a-zA-Z0-9]*[@#$%^&-+=()][a-zA-Z0-9]*$");
+		Matcher matcher = pattern.matcher(password);
+		return matcher.matches();
+	}
 }
