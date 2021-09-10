@@ -33,18 +33,26 @@ public class UserValidatorTest {
 		Assert.assertFalse(result);
 	}
 	@Test
-	public void givenFirstName_WhenNull_ShouldReturnFalse() {
+	public void givenFirstName_WhenNull_ShouldReturnFalse() throws UserValidationException {
 		UserValidator userValidator = new UserValidator();
-		boolean result = userValidator.validateName(null);
-		Assert.assertFalse(result);
+		try {
+			userValidator.validateName(null);
+		}
+		catch(UserValidationException e){
+			Assert.assertEquals("Please enter valid name. Entered Null.",e.getMessage());
+		}
 		
 	}
 	
 	@Test
-	public void givenFirstName_WhenEmpty_ShouldReturnFalse() {
+	public void givenFirstName_WhenEmpty_ShouldReturnFalse() throws UserValidationException {
 		UserValidator userValidator = new UserValidator();
-		boolean result = userValidator.validateName("");
-		Assert.assertFalse(result);
+		try {
+			userValidator.validateName("");
+		}
+		catch(UserValidationException e){
+			Assert.assertEquals("Please Enter Name. No Name entered.",e.getMessage());
+		}
 		
 	}
 	
@@ -86,16 +94,24 @@ public class UserValidatorTest {
 	@Test
 	public void givenLastName_WhenNull_ShouldReturnFalse() {
 		UserValidator userValidator = new UserValidator();
-		boolean result = userValidator.validateName(null);
-		Assert.assertFalse(result);
+		try {
+			userValidator.validateName(null);
+		}
+		catch(UserValidationException e){
+			Assert.assertEquals("Please enter valid name. Entered Null.",e.getMessage());
+		}
 		
 	}
 	
 	@Test
 	public void givenLastName_WhenEmpty_ShouldReturnFalse() {
 		UserValidator userValidator = new UserValidator();
-		boolean result = userValidator.validateName("");
-		Assert.assertFalse(result);
+		try {
+			userValidator.validateName("");
+		}
+		catch(UserValidationException e){
+			Assert.assertEquals("Please Enter Name. No Name entered.",e.getMessage());
+		}
 		
 	}
 	
@@ -122,18 +138,25 @@ public class UserValidatorTest {
 	}
 	
 	@Test
-	public void givenEmailAddress_WhenNull_ShouldReturnFalse() {
+	public void givenEmailAddress_WhenNull_ShouldReturnFalse() throws UserValidationException {
 		UserValidator userValidator = new UserValidator();
-		boolean result = userValidator.validateEmail(null);
-		Assert.assertFalse(result);
-		
+		try {
+			userValidator.validateEmail(null);
+		}
+		catch(UserValidationException e){
+			Assert.assertEquals("Please enter valid email. Entered Null.",e.getMessage());
+		}
 	}
 	
 	@Test
-	public void givenEmailAddress_WhenEmpty_ShouldReturnFalse() {
+	public void givenEmailAddress_WhenEmpty_ShouldReturnFalse() throws UserValidationException {
 		UserValidator userValidator = new UserValidator();
-		boolean result = userValidator.validateEmail("");
-		Assert.assertFalse(result);
+		try {
+			userValidator.validateEmail("");
+		}
+		catch(UserValidationException e){
+			Assert.assertEquals("Please Enter Email. No Email entered.",e.getMessage());
+		}
 		
 	}
 	
@@ -166,18 +189,26 @@ public class UserValidatorTest {
 	}
 	
 	@Test
-	public void givenMobileNumber_WhenNull_ShouldReturnFalse() {
+	public void givenMobileNumber_WhenNull_ShouldReturnFalse() throws UserValidationException {
 		UserValidator userValidator = new UserValidator();
-		boolean result = userValidator.validateMobileNumber(null);
-		Assert.assertFalse(result);
+		try {
+			userValidator.validateMobileNumber(null);
+		}
+		catch(UserValidationException e){
+			Assert.assertEquals("Please Enter Valid Mobile Number.Entered null.",e.getMessage());
+		}
 		
 	}
 	
 	@Test
-	public void givenMobileNumber_WhenEmpty_ShouldReturnFalse() {
+	public void givenMobileNumber_WhenEmpty_ShouldReturnFalse()throws UserValidationException {
 		UserValidator userValidator = new UserValidator();
-		boolean result = userValidator.validateMobileNumber("");
-		Assert.assertFalse(result);
+		try {
+			userValidator.validateMobileNumber("");
+		}
+		catch(UserValidationException e){
+			Assert.assertEquals("Please Enter Valid Mobile Number. No Mobile Number Entered.",e.getMessage());
+		}
 		
 	}
 	
@@ -234,18 +265,26 @@ public class UserValidatorTest {
 	
 	
 	@Test
-	public void givenPassword_WhenNull_ShouldReturnFalse() {
+	public void givenPassword_WhenNull_ShouldReturnFalse() throws UserValidationException {
 		UserValidator userValidator = new UserValidator();
-		boolean result = userValidator.validatePassword(null);
-		Assert.assertFalse(result);
+		try {
+			userValidator.validatePassword(null);
+		}
+		catch(UserValidationException e){
+			Assert.assertEquals("Please Enter Valid Password. Entered null.",e.getMessage());
+		}
 		
 	}
 	
 	@Test
-	public void givenPassword_WhenEmpty_ShouldReturnFalse() {
+	public void givenPassword_WhenEmpty_ShouldReturnFalse() throws UserValidationException {
 		UserValidator userValidator = new UserValidator();
-		boolean result = userValidator.validatePassword("");
-		Assert.assertFalse(result);
+		try {
+			userValidator.validatePassword("");
+		}
+		catch(UserValidationException e){
+			Assert.assertEquals("Please Enter Valid Password. No Password Entered.",e.getMessage());
+		}
 		
 	}
 	
