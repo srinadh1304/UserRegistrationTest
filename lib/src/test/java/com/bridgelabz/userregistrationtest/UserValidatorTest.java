@@ -35,24 +35,24 @@ public class UserValidatorTest {
 	@Test
 	public void givenFirstName_WhenNull_ShouldReturnFalse() {
 		UserValidator userValidator = new UserValidator();
-		boolean isNotValid = userValidator.validateName(null);
-		Assert.assertFalse(isNotValid);
+		boolean result = userValidator.validateName(null);
+		Assert.assertFalse(result);
 		
 	}
 	
 	@Test
 	public void givenFirstName_WhenEmpty_ShouldReturnFalse() {
 		UserValidator userValidator = new UserValidator();
-		boolean isNotValid = userValidator.validateName("");
-		Assert.assertFalse(isNotValid);
+		boolean result = userValidator.validateName("");
+		Assert.assertFalse(result);
 		
 	}
 	
 	@Test
 	public void givenFirstName_WhenSpecialCharatersPresent_ShouldReturnFalse() {
 		UserValidator userValidator = new UserValidator();
-		boolean isNotValid = userValidator.validateName("Sjk@^");
-		Assert.assertFalse(isNotValid);
+		boolean result = userValidator.validateName("Sjk@^");
+		Assert.assertFalse(result);
 		
 	}
 	
@@ -86,24 +86,24 @@ public class UserValidatorTest {
 	@Test
 	public void givenLastName_WhenNull_ShouldReturnFalse() {
 		UserValidator userValidator = new UserValidator();
-		boolean isNotValid = userValidator.validateName(null);
-		Assert.assertFalse(isNotValid);
+		boolean result = userValidator.validateName(null);
+		Assert.assertFalse(result);
 		
 	}
 	
 	@Test
 	public void givenLastName_WhenEmpty_ShouldReturnFalse() {
 		UserValidator userValidator = new UserValidator();
-		boolean isNotValid = userValidator.validateName("");
-		Assert.assertFalse(isNotValid);
+		boolean result = userValidator.validateName("");
+		Assert.assertFalse(result);
 		
 	}
 	
 	@Test
 	public void givenLastName_WhenSpecialCharatersPresent_ShouldReturnFalse() {
 		UserValidator userValidator = new UserValidator();
-		boolean isNotValid = userValidator.validateName("fdsa@^");
-		Assert.assertFalse(isNotValid);
+		boolean result = userValidator.validateName("fdsa@^");
+		Assert.assertFalse(result);
 		
 	}
 	
@@ -119,5 +119,21 @@ public class UserValidatorTest {
 		UserValidator validator = new UserValidator();	
 		boolean result = validator.validateEmail("sri@ta@gmail.com");
 		Assert.assertFalse(result);
+	}
+	
+	@Test
+	public void givenEmailAddress_WhenNull_ShouldReturnFalse() {
+		UserValidator userValidator = new UserValidator();
+		boolean result = userValidator.validateEmail(null);
+		Assert.assertFalse(result);
+		
+	}
+	
+	@Test
+	public void givenEmailAddress_WhenEmpty_ShouldReturnFalse() {
+		UserValidator userValidator = new UserValidator();
+		boolean result = userValidator.validateEmail("");
+		Assert.assertFalse(result);
+		
 	}
 }
