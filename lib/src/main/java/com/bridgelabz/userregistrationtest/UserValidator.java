@@ -4,21 +4,32 @@ import java.util.regex.Pattern;
 
 public class UserValidator {
 
-	public static boolean validateName(String name) {
-		if(name == null) {
-			return false;
+	public static boolean validateName(String name)  throws UserValidationException {
+		try {
+			if (name.length() == 0) {
+				throw new UserValidationException("Please Enter Name. No Name entered.");
+			}
+		}
+		catch (NullPointerException e) {
+			throw new UserValidationException("Please enter valid name. Entered Null.");
 		}
 		if(name == "") {
 			return false;
 		}
-		String nameValidation="^[A-Z][a-z]{2,}$";
-		return Pattern.matches(nameValidation, name);
+		Pattern pattern = Pattern.compile("^[A-Z][a-z]{2,}$");
+		Matcher matcher=pattern.matcher(name);
+		return matcher.matches();
 	}
 
-	public static boolean validateEmail(String email) {
+	public static boolean validateEmail(String email) throws UserValidationException {
+		try {
+			if (email.length() == 0) {
+				throw new UserValidationException("Please Enter Email. No Email entered.");
+			}
+		}
+		catch (NullPointerException e) {
+			throw new UserValidationException("Please enter valid email. Entered Null.");
 
-		if(email == null) {
-			return false;
 		}
 		if(email == "") {
 			return false;
@@ -28,10 +39,14 @@ public class UserValidator {
 		return matcher.matches();
 	}
 
-	public boolean validateMobileNumber(String mobileNumber) {
-
-		if(mobileNumber == null) {
-			return false;
+	public boolean validateMobileNumber(String mobileNumber)throws UserValidationException {
+		try {
+			if (mobileNumber.length() == 0) {
+				throw new UserValidationException("Please Enter Valid Mobile Number. No Mobile Number Entered.");			
+			}
+		}
+		catch (NullPointerException e) {
+			throw new UserValidationException("Please Enter Valid Mobile Number.Entered null.");
 		}
 		if(mobileNumber == "") {
 			return false;
@@ -41,10 +56,14 @@ public class UserValidator {
 		return matcher.matches();
 	}
 
-	public boolean validatePassword(String password) {
-
-		if(password == null) {
-			return false;
+	public boolean validatePassword(String password)throws UserValidationException {
+		try {
+			if (password.length() == 0) {
+				throw new UserValidationException("Please Enter Valid Password. No Password Entered.");
+			}
+		}
+		catch (NullPointerException e) {
+			throw new UserValidationException("Please Enter Valid Password. Entered null.");
 		}
 		if(password == "") {
 			return false;
