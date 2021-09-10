@@ -184,7 +184,7 @@ public class UserValidatorTest {
 	@Test
 	public void givenMobileNumber_WhenCharatersArePresent_ShouldReturnFalse() {
 		UserValidator userValidator = new UserValidator();
-		boolean result = userValidator.validateMobileNumber("9a 948375053h");
+		boolean result = userValidator.validateMobileNumber("9a 584309fs890");
 		Assert.assertFalse(result);
 		
 	}
@@ -192,9 +192,62 @@ public class UserValidatorTest {
 	@Test
 	public void givenMobileNumber_WhenSpecialCharatersArePresent_ShouldReturnFalse() {
 		UserValidator userValidator = new UserValidator();
-		boolean result = userValidator.validateMobileNumber("#6 948375*535");
+		boolean result = userValidator.validateMobileNumber("$67 43829*4328");
 		Assert.assertFalse(result);
 		
 	}
+	
+	@Test
+	public void givenPassword_WhenShort_ShouldReturnFalse() {
+		UserValidator validator = new UserValidator();	
+		boolean result = validator.validatePassword("Kdj1@f");
+		Assert.assertFalse(result);
+	}
+	
+	@Test
+	public void givenPassword_WhenNoUpperCase_ShouldReturnFalse() {
+		UserValidator validator = new UserValidator();	
+		boolean result = validator.validatePassword("kjfdsk@1");
+		Assert.assertFalse(result);
+	}
+	
+	@Test
+	public void givenPassword_WhenNoNumericalDigit_ShouldReturnFalse() {
+		UserValidator validator = new UserValidator();	
+		boolean result = validator.validatePassword("fAjdklK@jk");
+		Assert.assertFalse(result);
+	}
+	
+	@Test
+	public void givenPassword_WhenNoSpecialCharacter_ShouldReturnFalse() {
+		UserValidator validator = new UserValidator();	
+		boolean result = validator.validatePassword("fjkdFls1");
+		Assert.assertFalse(result);
+	}
+	
+	@Test
+	public void givenPassword_WhenMoreThanOneSpecialCharacter_ShouldReturnFalse() {
+		UserValidator validator = new UserValidator();	
+		boolean result = validator.validatePassword("fjFdls@$jlk2");
+		Assert.assertFalse(result);
+	}
+	
+	
+	@Test
+	public void givenPassword_WhenNull_ShouldReturnFalse() {
+		UserValidator userValidator = new UserValidator();
+		boolean result = userValidator.validatePassword(null);
+		Assert.assertFalse(result);
+		
+	}
+	
+	@Test
+	public void givenPassword_WhenEmpty_ShouldReturnFalse() {
+		UserValidator userValidator = new UserValidator();
+		boolean result = userValidator.validatePassword("");
+		Assert.assertFalse(result);
+		
+	}
+	
 	
 }
