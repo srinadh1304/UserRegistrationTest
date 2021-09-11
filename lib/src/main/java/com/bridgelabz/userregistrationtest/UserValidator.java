@@ -13,9 +13,6 @@ public class UserValidator {
 		catch (NullPointerException e) {
 			throw new UserValidationException("Please enter valid name. Entered Null.");
 		}
-		if(name == "") {
-			return false;
-		}
 		Pattern pattern = Pattern.compile("^[A-Z][a-z]{2,}$");
 		Matcher matcher=pattern.matcher(name);
 		return matcher.matches();
@@ -31,9 +28,6 @@ public class UserValidator {
 			throw new UserValidationException("Please enter valid email. Entered Null.");
 
 		}
-		if(email == "") {
-			return false;
-		}
 		Pattern pattern = Pattern.compile("([a-zA-Z][a-zA-Z0-9_-]*([^.]?$)*[a-zA-Z0-9])(([+_.-][a-zA-Z0-9]*)?)(@[a-zA-Z0-9]+)([.])([a-z]{2,})(([.][a-z]{2,})?)");
 		Matcher matcher = pattern.matcher(email);
 		return matcher.matches();
@@ -48,9 +42,6 @@ public class UserValidator {
 		catch (NullPointerException e) {
 			throw new UserValidationException("Please Enter Valid Mobile Number.Entered null.");
 		}
-		if(mobileNumber == "") {
-			return false;
-		}
 		Pattern pattern = Pattern.compile("[0-9]{1,2}[\s][1-9][0-9]{9}");
 		Matcher matcher = pattern.matcher(mobileNumber);
 		return matcher.matches();
@@ -64,9 +55,6 @@ public class UserValidator {
 		}
 		catch (NullPointerException e) {
 			throw new UserValidationException("Please Enter Valid Password. Entered null.");
-		}
-		if(password == "") {
-			return false;
 		}
 		Pattern pattern = Pattern.compile("^(?=.*[A-Z])(?=.*[0-9])(?=.{8,}$)[a-zA-Z0-9]*[@#$%^&-+=()][a-zA-Z0-9]*$");
 		Matcher matcher = pattern.matcher(password);
