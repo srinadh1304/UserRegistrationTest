@@ -39,7 +39,7 @@ public class UserValidatorTest {
 			userValidator.validateName(null);
 		}
 		catch(UserValidationException e){
-			Assert.assertEquals("Please enter valid name. Entered Null.",e.getMessage());
+			Assert.assertEquals(UserValidationException.ExceptionType.ENTERED_NULL,e.type);
 		}
 		
 	}
@@ -51,7 +51,7 @@ public class UserValidatorTest {
 			userValidator.validateName("");
 		}
 		catch(UserValidationException e){
-			Assert.assertEquals("Please Enter Name. No Name entered.",e.getMessage());
+			Assert.assertEquals(UserValidationException.ExceptionType.ENTERED_EMPTY,e.type);
 		}
 		
 	}
@@ -98,7 +98,7 @@ public class UserValidatorTest {
 			userValidator.validateName(null);
 		}
 		catch(UserValidationException e){
-			Assert.assertEquals("Please enter valid name. Entered Null.",e.getMessage());
+			Assert.assertEquals(UserValidationException.ExceptionType.ENTERED_NULL,e.type);
 		}
 		
 	}
@@ -110,7 +110,7 @@ public class UserValidatorTest {
 			userValidator.validateName("");
 		}
 		catch(UserValidationException e){
-			Assert.assertEquals("Please Enter Name. No Name entered.",e.getMessage());
+			Assert.assertEquals(UserValidationException.ExceptionType.ENTERED_EMPTY,e.type);
 		}
 		
 	}
@@ -144,7 +144,7 @@ public class UserValidatorTest {
 			userValidator.validateEmail(null);
 		}
 		catch(UserValidationException e){
-			Assert.assertEquals("Please enter valid email. Entered Null.",e.getMessage());
+			Assert.assertEquals(UserValidationException.ExceptionType.ENTERED_NULL,e.type);
 		}
 	}
 	
@@ -155,7 +155,7 @@ public class UserValidatorTest {
 			userValidator.validateEmail("");
 		}
 		catch(UserValidationException e){
-			Assert.assertEquals("Please Enter Email. No Email entered.",e.getMessage());
+			Assert.assertEquals(UserValidationException.ExceptionType.ENTERED_EMPTY,e.type);
 		}
 		
 	}
@@ -195,7 +195,7 @@ public class UserValidatorTest {
 			userValidator.validateMobileNumber(null);
 		}
 		catch(UserValidationException e){
-			Assert.assertEquals("Please Enter Valid Mobile Number.Entered null.",e.getMessage());
+			Assert.assertEquals(UserValidationException.ExceptionType.ENTERED_NULL,e.type);
 		}
 		
 	}
@@ -207,7 +207,7 @@ public class UserValidatorTest {
 			userValidator.validateMobileNumber("");
 		}
 		catch(UserValidationException e){
-			Assert.assertEquals("Please Enter Valid Mobile Number. No Mobile Number Entered.",e.getMessage());
+			Assert.assertEquals(UserValidationException.ExceptionType.ENTERED_EMPTY,e.type);
 		}
 		
 	}
@@ -271,7 +271,7 @@ public class UserValidatorTest {
 			userValidator.validatePassword(null);
 		}
 		catch(UserValidationException e){
-			Assert.assertEquals("Please Enter Valid Password. Entered null.",e.getMessage());
+			Assert.assertEquals(UserValidationException.ExceptionType.ENTERED_NULL,e.type);
 		}
 		
 	}
@@ -283,7 +283,7 @@ public class UserValidatorTest {
 			userValidator.validatePassword("");
 		}
 		catch(UserValidationException e){
-			Assert.assertEquals("Please Enter Valid Password. No Password Entered.",e.getMessage());
+			Assert.assertEquals(UserValidationException.ExceptionType.ENTERED_EMPTY,e.type);
 		}
 		
 	}
