@@ -33,7 +33,7 @@ public class UserValidatorTest {
 		Assert.assertFalse(result);
 	}
 	@Test
-	public void givenFirstName_WhenNull_ShouldReturnFalse() throws UserValidationException {
+	public void givenFirstName_WhenNull_ShouldReturnFalse() {
 		UserValidator userValidator = new UserValidator();
 		try {
 			userValidator.validateName(null);
@@ -45,7 +45,7 @@ public class UserValidatorTest {
 	}
 	
 	@Test
-	public void givenFirstName_WhenEmpty_ShouldReturnFalse() throws UserValidationException {
+	public void givenFirstName_WhenEmpty_ShouldReturnFalse() {
 		UserValidator userValidator = new UserValidator();
 		try {
 			userValidator.validateName("");
@@ -138,7 +138,7 @@ public class UserValidatorTest {
 	}
 	
 	@Test
-	public void givenEmailAddress_WhenNull_ShouldReturnFalse() throws UserValidationException {
+	public void givenEmailAddress_WhenNull_ShouldReturnFalse() {
 		UserValidator userValidator = new UserValidator();
 		try {
 			userValidator.validateEmail(null);
@@ -189,7 +189,7 @@ public class UserValidatorTest {
 	}
 	
 	@Test
-	public void givenMobileNumber_WhenNull_ShouldReturnFalse() throws UserValidationException {
+	public void givenMobileNumber_WhenNull_ShouldReturnFalse()  {
 		UserValidator userValidator = new UserValidator();
 		try {
 			userValidator.validateMobileNumber(null);
@@ -201,7 +201,7 @@ public class UserValidatorTest {
 	}
 	
 	@Test
-	public void givenMobileNumber_WhenEmpty_ShouldReturnFalse()throws UserValidationException {
+	public void givenMobileNumber_WhenEmpty_ShouldReturnFalse(){
 		UserValidator userValidator = new UserValidator();
 		try {
 			userValidator.validateMobileNumber("");
@@ -265,7 +265,7 @@ public class UserValidatorTest {
 	
 	
 	@Test
-	public void givenPassword_WhenNull_ShouldReturnFalse() throws UserValidationException {
+	public void givenPassword_WhenNull_ShouldReturnFalse() {
 		UserValidator userValidator = new UserValidator();
 		try {
 			userValidator.validatePassword(null);
@@ -277,7 +277,7 @@ public class UserValidatorTest {
 	}
 	
 	@Test
-	public void givenPassword_WhenEmpty_ShouldReturnFalse() throws UserValidationException {
+	public void givenPassword_WhenEmpty_ShouldReturnFalse()  {
 		UserValidator userValidator = new UserValidator();
 		try {
 			userValidator.validatePassword("");
