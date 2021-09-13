@@ -4,9 +4,14 @@ import java.util.regex.Pattern;
 
 import com.bridgelabz.userregistrationtest.UserValidationException.ExceptionType;
 
+@FunctionalInterface
+interface UserDetailsValidationIF {
+	public boolean validate(String x) throws UserValidationException;
+}
+
 public class UserValidator {
 
-	public static boolean validateName(String name)  throws UserValidationException {
+	UserDetailsValidationIF validateName = name -> {
 		try {
 			if (name.length() == 0) {
 				throw new UserValidationException(ExceptionType.ENTERED_EMPTY,"Please Enter Name. No Name entered.");
@@ -18,9 +23,9 @@ public class UserValidator {
 		Pattern pattern = Pattern.compile("^[A-Z][a-z]{2,}$");
 		Matcher matcher=pattern.matcher(name);
 		return matcher.matches();
-	}
+	};
 
-	public static boolean validateEmail(String email) throws UserValidationException {
+	UserDetailsValidationIF validateEmail = email ->{
 		try {
 			if (email.length() == 0) {
 				throw new UserValidationException(ExceptionType.ENTERED_EMPTY,"Please Enter Email. No Email entered.");
@@ -33,9 +38,9 @@ public class UserValidator {
 		Pattern pattern = Pattern.compile("([a-zA-Z][a-zA-Z0-9_-]*([^.]?$)*[a-zA-Z0-9])(([+_.-][a-zA-Z0-9]*)?)(@[a-zA-Z0-9]+)([.])([a-z]{2,})(([.][a-z]{2,})?)");
 		Matcher matcher = pattern.matcher(email);
 		return matcher.matches();
-	}
+	};
 
-	public boolean validateMobileNumber(String mobileNumber)throws UserValidationException {
+	UserDetailsValidationIF validateMobileNumber = mobileNumber -> {
 		try {
 			if (mobileNumber.length() == 0) {
 				throw new UserValidationException(ExceptionType.ENTERED_EMPTY,"Please Enter Valid Mobile Number. No Mobile Number Entered.");			
@@ -47,9 +52,9 @@ public class UserValidator {
 		Pattern pattern = Pattern.compile("[0-9]{1,2}[\s][1-9][0-9]{9}");
 		Matcher matcher = pattern.matcher(mobileNumber);
 		return matcher.matches();
-	}
+	};
 
-	public boolean validatePassword(String password)throws UserValidationException {
+	UserDetailsValidationIF validatePassword = password -> {
 		try {
 			if (password.length() == 0) {
 				throw new UserValidationException(ExceptionType.ENTERED_EMPTY,"Please Enter Valid Password. No Password Entered.");
@@ -61,5 +66,5 @@ public class UserValidator {
 		Pattern pattern = Pattern.compile("^(?=.*[A-Z])(?=.*[0-9])(?=.{8,}$)[a-zA-Z0-9]*[@#$%^&-+=()][a-zA-Z0-9]*$");
 		Matcher matcher = pattern.matcher(password);
 		return matcher.matches();
-	}
+	};
 }
