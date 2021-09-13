@@ -40,7 +40,7 @@ public class EmailValidator {
 
 	@Test
 	public void givenEmail_Should_Return_Expected_Result() throws UserValidationException{
-		boolean testResult = UserValidator.validateEmail(email);
+		boolean testResult = UserValidator.validateEmail.validate(email);
 		Assert.assertEquals(testResult, assertion);
 	}
 

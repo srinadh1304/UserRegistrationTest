@@ -11,7 +11,7 @@ interface UserDetailsValidationIF {
 
 public class UserValidator {
 
-	UserDetailsValidationIF validateName = name -> {
+	static UserDetailsValidationIF validateName = name -> {
 		try {
 			if (name.length() == 0) {
 				throw new UserValidationException(ExceptionType.ENTERED_EMPTY,"Please Enter Name. No Name entered.");
@@ -25,7 +25,7 @@ public class UserValidator {
 		return matcher.matches();
 	};
 
-	UserDetailsValidationIF validateEmail = email ->{
+	static UserDetailsValidationIF validateEmail = email ->{
 		try {
 			if (email.length() == 0) {
 				throw new UserValidationException(ExceptionType.ENTERED_EMPTY,"Please Enter Email. No Email entered.");
@@ -40,7 +40,7 @@ public class UserValidator {
 		return matcher.matches();
 	};
 
-	UserDetailsValidationIF validateMobileNumber = mobileNumber -> {
+	static UserDetailsValidationIF validateMobileNumber = mobileNumber -> {
 		try {
 			if (mobileNumber.length() == 0) {
 				throw new UserValidationException(ExceptionType.ENTERED_EMPTY,"Please Enter Valid Mobile Number. No Mobile Number Entered.");			
@@ -54,7 +54,7 @@ public class UserValidator {
 		return matcher.matches();
 	};
 
-	UserDetailsValidationIF validatePassword = password -> {
+	static UserDetailsValidationIF validatePassword = password -> {
 		try {
 			if (password.length() == 0) {
 				throw new UserValidationException(ExceptionType.ENTERED_EMPTY,"Please Enter Valid Password. No Password Entered.");
